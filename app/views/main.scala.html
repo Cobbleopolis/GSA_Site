@@ -1,0 +1,44 @@
+@(title: String, banner: String)(header: Html)(content: Html)
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>@title</title>
+        <script src="@routes.Assets.at("javascripts/jquery-2.1.4.min.js")" type="text/javascript"></script>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/style.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/font-awesome.min.css")">
+        <link rel="stylesheet" media="screen" href="//fonts.googleapis.com/css?family=Ubuntu&subset=cyrillic,latin">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <script src="@routes.Assets.at("javascripts/global.js")" type="text/javascript"></script>
+        @header
+    </head>
+    <body>
+        <div id="nav">
+            <ul>
+            @reference.Navigation.navMenu.map { entry: reference.NavEntry =>
+                <a href="@entry.link">
+                    <li>
+                        <i class="@{
+                            "fa fa-" + entry.icon
+                        }"></i>
+                        <p>@entry.text</p>
+                    </li>
+                </a>
+            }
+            </ul>
+        </div>
+        <div id="navButton">
+            <i class="fa fa-bars"></i>
+        </div>
+        <div id="content">
+            <div id="banner">
+                <span>@banner</span>
+            </div>
+            <div id="pageContent">
+            @content
+            </div>
+        </div>
+        <div id="overlay"></div>
+    </body>
+</html>

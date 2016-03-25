@@ -1,0 +1,43 @@
+@import '../style'
+
+ul.tabs
+    margin: 0
+    padding: 0
+    list-style: none
+    li
+        background: none
+        color: #222
+        display: inline-block
+        padding: 10px 15px
+        cursor: pointer
+    li.current
+        background: #ededed
+        color: #222
+.tab-content
+    display: none
+    background: #ededed
+    padding: 1rem
+    width: 100%
+    //overflow-x: hidden
+
+.tab-content.current
+    display: inherit
+
+.selection
+    position: relative
+    float: left
+    width: 100%
+    margin-right: 1rem
+
+.edit
+    position: relative
+    left: 100%
+    top: 0
+    float: left
+    width: 100%
+    opacity: 0
+
+.buttonContainer
+    input[type=submit]
+        display: block
+        float: right

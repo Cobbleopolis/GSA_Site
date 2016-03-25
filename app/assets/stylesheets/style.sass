@@ -1,0 +1,201 @@
+//colors
+$linkColor: #00b7ff
+$backgroundColor: #e0e0e0
+
+$navColor: darken($backgroundColor, 70)
+$brightNavColor: darken($backgroundColor, 50)
+$brightBackgroundColor: lighten($backgroundColor, 20)
+
+$inactiveInputBorderColor: rgba(34,36,38,.15)
+$activeInputBorderColor: saturate($inactiveInputBorderColor, 100)
+
+$borderColor: rgba(34, 36, 38, 0.5)
+$mainBorderColor: darken($backgroundColor, 40)
+$navBorderColor: darken($backgroundColor, 60)
+
+
+//color constants
+$red: #DB2828
+$orange: #F2711C
+$yellow: #FBBD08
+$olive: #B5CC18
+$green: #21BA45
+$teal: #00B5AD
+$blue: #2185D0
+$violet: #6435C9
+$purple: #A333C8
+$pink: #E03997
+$brown: #A5673F
+$grey: #767676
+$black: #1B1C1D
+
+//fonts
+$font: Ubuntu
+
+@mixin transition($properties)
+    -webkit-transition: $properties
+    -moz-transition: $properties
+    -ms-transition: $properties
+    -o-transition: $properties
+    transition: $properties
+
+@mixin classColorVariants($class, $property, $preColor, $postColor)
+    .#{$class}.red
+        #{$property}: #{$preColor} $red #{$postColor}
+    .#{$class}.orange
+        #{$property}: #{$preColor} $orange #{$postColor}
+    .#{$class}.yellow
+        #{$property}: #{$preColor} $yellow #{$postColor}
+    .#{$class}.olive
+        #{$property}: #{$preColor} $olive #{$postColor}
+    .#{$class}.green
+        #{$property}: #{$preColor} $green #{$postColor}
+    .#{$class}.teal
+        #{$property}: #{$preColor} $teal #{$postColor}
+    .#{$class}.blue
+        #{$property}: #{$preColor} $blue #{$postColor}
+    .#{$class}.violet
+        #{$property}: #{$preColor} $violet #{$postColor}
+    .#{$class}.purple
+        #{$property}: #{$preColor} $purple #{$postColor}
+    .#{$class}.pink
+        #{$property}: #{$preColor} $pink #{$postColor}
+    .#{$class}.brown
+        #{$property}: #{$preColor} $brown #{$postColor}
+    .#{$class}.grey
+        #{$property}: #{$preColor} $grey #{$postColor}
+    .#{$class}.black
+        #{$property}: #{$preColor} $black #{$postColor}
+
+@mixin idColorVariants($class, $property, $preColor, $postColor)
+    ##{$class}.red
+        #{$property}: #{$preColor} $red #{$postColor}
+    ##{$class}.orange
+        #{$property}: #{$preColor} $orange #{$postColor}
+    ##{$class}.yellow
+        #{$property}: #{$preColor} $yellow #{$postColor}
+    ##{$class}.olive
+        #{$property}: #{$preColor} $olive #{$postColor}
+    ##{$class}.green
+        #{$property}: #{$preColor} $green #{$postColor}
+    ##{$class}.teal
+        #{$property}: #{$preColor} $teal #{$postColor}
+    ##{$class}.blue
+        #{$property}: #{$preColor} $blue #{$postColor}
+    ##{$class}.violet
+        #{$property}: #{$preColor} $violet #{$postColor}
+    ##{$class}.purple
+        #{$property}: #{$preColor} $purple #{$postColor}
+    ##{$class}.pink
+        #{$property}: #{$preColor} $pink #{$postColor}
+    ##{$class}.brown
+        #{$property}: #{$preColor} $brown #{$postColor}
+    ##{$class}.grey
+        #{$property}: #{$preColor} $grey #{$postColor}
+    ##{$class}.black
+        #{$property}: #{$preColor} $black #{$postColor}
+
+
+
+body
+    font-family: $font
+    //padding: 50px
+    background: $backgroundColor
+    overflow-x: hidden
+
+
+#content
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    min-height: 100%
+    background: $backgroundColor
+    //height: 100%
+    background: $backgroundColor
+//overflow: scroll
+//overflow-x: hidden
+
+#overlay
+    content: '\A'
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    background: rgba(0, 0, 0, 0.6)
+    opacity: 0
+    display: none
+
+#pageContent
+    padding:
+        left: 5rem
+        right: 5rem
+
+#nav
+    z-index: 0
+    position: fixed
+    float: left
+    left: 0
+    top: 0
+    height: 100%
+    overflow: auto
+    background: $navColor
+    ul
+        padding: 0
+        margin: 0
+        background: $navColor
+        height: 100%
+        list-style: none
+        a
+            color: white
+            text-decoration: none !important
+            li
+                text-align: center
+                padding: 1rem 2rem 0 2rem
+                border-bottom: solid 1px $navBorderColor
+                @include transition(background 0.1s linear)
+                &:hover
+                    background: $brightNavColor !important
+                    cursor: pointer
+                i
+                    font-size: 2rem
+                p
+                    margin-top: 0 !important
+
+#navButton
+    float: left
+    left: 0
+    top: 2rem
+    position: fixed
+    z-index: 1
+    color: #FFFFFF
+    background: $navColor
+    font-size: 20px
+    padding: 1rem
+    height: 2rem
+    border:
+        top-right-radius: 0.25rem
+        bottom-right-radius: 0.25rem
+    display: inline-block !important
+    i
+        position: relative
+        vertical-align: middle
+        height: 1rem
+        padding-right: .5rem
+    #navLabel
+        display: none
+        padding: 0
+        vertical-align: middle
+    &:hover
+        cursor: pointer
+
+#banner
+    width: 100%
+    text-align: center
+    padding:
+        top: 0.25rem
+        bottom: 1rem
+    font:
+        size: 3rem
+        weight: bold

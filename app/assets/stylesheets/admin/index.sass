@@ -1,0 +1,13 @@
+@import '../style'
+
+button
+    border: 0
+        radius: 0.28571429rem
+    background: $blue
+    color: #FFF
+    font-weight: bold
+    padding: .78571429rem 1.5rem
+    font-size: 1rem
+    @include transition(background 0.01s linear)
+    &:hover
+        background: darken($blue, 10)
