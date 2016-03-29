@@ -1,6 +1,6 @@
 package util
 
-import models.HomeSection
+import models.{User, HomeSection}
 import play.api.db.DB
 import reference.DBReference
 import play.api.Play.current
@@ -26,6 +26,12 @@ object DBUtil {
         DB.withConnection("gsa_site")(implicit conn => {
             DBReference.getContentSection.as(DBReference.getSectionParser.*)
         })
+    }
+
+    def getUserFromUsername(username: String): User = {
+        DB.withConnection("admin_gsa_site")(implicit conn => {
+            DBReference.getUser.on("username" -> username).as(DBReference.getUserParser.singleOpt)
+        }.orNull)
     }
     
 }

@@ -2,7 +2,7 @@ package reference
 
 import anorm.SqlParser._
 import anorm._
-import models.HomeSection
+import models.{User, HomeSection}
 
 object DBReference {
 
@@ -14,5 +14,12 @@ object DBReference {
         section <- int("section")
         color <- str("color")
     } yield new HomeSection(header, content, section, color)
+
+    val getUser = SQL("select * from users where username={username}")
+    val getUserParser = for {
+        username <- str("username")
+        email <- str("email")
+        password <- str("password")
+    } yield new User(username, email, password)
     
 }
