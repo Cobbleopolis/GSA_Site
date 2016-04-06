@@ -1,0 +1,60 @@
+@()
+
+@createOption(id: String, label: String, placeholder: String = "Loading...") = {
+    <label for="@id">@label</label>
+    <select id="@id">
+        <option value="" disabled selected>@placeholder</option>
+    </select>
+}
+
+
+@main("Admin - Edit Homepage", "Edit Homepage") {
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/admin/edit.css")">
+    <script src="@routes.Assets.at("javascripts/tinymce/tinymce.min.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/admin/edit.js")" type="text/javascript"></script>
+} {
+    <ul class="tabs">
+        <li class="tab-link current" data-tab="home">Home Page</li>
+        <li class="tab-link" data-tab="flags">Flags Page</li>
+    </ul>
+
+    <div id="home" class="tab-content current loading">
+        <div id="homeSelection" class="section selection currentSection">
+            <form id="homeSelectForm">
+                @createOption("selectRow", "Select Row")
+                <br>
+                @createOption("selectSection", "Select Section")
+                <br>
+                <div class="buttonContainer">
+                    <input class="positive" type="submit" name="add" value="Add Section">
+                    <input class="neutral" type="submit" name="edit" value="Edit Section">
+                    <input class="negative" type="submit" name="delete" value="Delete Section">
+                </div>
+            </form>
+        </div>
+        <div id="homeEdit" class="section edit">
+            <form id="headerForm">
+                <label id="homeHeaderLabel" for="homeHeaderOption">Header</label>
+                <input id="homeHeaderOption" type="text" name="homeHeaderOption">
+                <br>
+                <label id="homeContentLabel" for="homeContentOption">Header</label>
+                <input id="homeContentOption" type="text" name="homeContentOption">
+                <br>
+                <label id="homeColorLabel" for="homeColorOption">Header</label>
+                <select id="homeColorOption">
+                    <option value="" selected disabled>Color</option>
+                    @for(color <- reference.CSSReference.colors) {
+                        <option value="@color._1">@color._2</option>
+                    }
+                </select>
+                <div class="buttonContainer">
+                    <input id="homeSubmit" class="positive" type="submit" name="save" value="Save">
+                    <input id="homeCancel" class="negative" type="submit" name="cancel" value="Cancel">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="flags" class="tab-content">
+        <p>Flags</p>
+    </div>
+}

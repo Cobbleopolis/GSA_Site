@@ -3,19 +3,28 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index
+GET           /                                        controllers.Application.index
 #GET     /flags                      controllers.Application.flags
 
 
-GET     /admin/login                controllers.Auth.login
-POST    /admin/login                controllers.Auth.submitLogin
-GET     /admin/logout               controllers.Auth.logout
+GET           /admin/login                             controllers.Auth.login
+POST          /admin/login                             controllers.Auth.submitLogin
+GET           /admin/logout                            controllers.Auth.logout
 
-GET     /admin                      controllers.Admin.index
+GET           /admin                                   controllers.Admin.index
+
+GET           /admin/edit                              controllers.Admin.edit
+
+GET           /api/admin/edit/home/:id                 controllers.admin.Edit.getHomeSection(id)
+PUT           /api/admin/edit/home                     controllers.admin.Edit.putHomeSection
+PATCH         /api/admin/edit/home/:id                 controllers.admin.Edit.patchHomeSection(id)
+DELETE        /api/admin/edit/home/:id                 controllers.admin.Edit.deleteHomeSection(id)
+
+GET           /api/admin/edit/homeEditSelectors        controllers.admin.Edit.getHomeSelectors
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET           /assets/*file                            controllers.Assets.at(path="/public", file)
 
-GET     /static/*file               controllers.ExternalAssets.at(path="static/", file)
+GET           /static/*file                            controllers.ExternalAssets.at(path="static/", file)
 
     

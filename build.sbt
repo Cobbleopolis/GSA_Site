@@ -16,4 +16,10 @@ libraryDependencies ++= Seq(
     "org.mindrot" % "jbcrypt" % "0.3m"
 )
 
+TypescriptKeys.sourceRoot := (baseDirectory.value / "app" / "assets" / "javascripts").absolutePath
+TypescriptKeys.sourceMap := true
+
+unmanagedSourceDirectories in Compile += baseDirectory.value / "app/assets/javascripts"
+unmanagedSourceDirectories in Compile += baseDirectory.value / "app/assets/stylesheets"
+
 unmanagedResourceDirectories in Test <+=  baseDirectory ( _ /"target/web/public/test" )  

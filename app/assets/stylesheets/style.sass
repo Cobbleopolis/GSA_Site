@@ -199,3 +199,81 @@ body
     font:
         size: 3rem
         weight: bold
+
+#loadingModal
+    display: none
+    position: fixed
+    z-index: 1000
+    top: 0
+    left: 0
+    height: 100%
+    width: 100%
+    background: rgba( 255, 255, 255, .8 ) url('http://i.stack.imgur.com/FhHRx.gif') 50% 50% no-repeat
+
+body.loading
+    overflow: hidden
+    #loadingModal
+        display: block
+
+.message
+    margin:
+        top: 0.25rem
+        bottom: 0.25rem
+        left: .5rem
+        right: .5rem
+    padding:
+        top: .392857145rem
+        bottom: .392857145rem
+        left: .5rem
+        right: .5rem
+    border-radius: 0.28571429rem
+
+.message.neutral
+    background-color: #F8F8F9
+    box-shadow: 0 0 0 1px rgba(34,36,38,.22) inset,0 0 0 0 transparent
+    color: rgba(0, 0, 0, .87)
+
+.message.info
+    background-color: #F8FFFF
+    box-shadow: 0 0 0 1px #a9d5de inset, 0 0 0 0 transparent
+    color: #276F86
+
+.message.positive
+    background-color: #FCFFF5
+    box-shadow: 0 0 0 1px #a3c293 inset, 0 0 0 0 transparent
+    color: #2C662D
+
+.message.negative
+    background-color: #FFF6F6
+    box-shadow: 0 0 0 1px #E0B4B4 inset, 0 0 0 0 transparent
+    color: $red
+
+label, input, select
+    font-size: 1rem
+
+input[type=submit]
+    margin: 0.25rem
+    border: 0
+        radius: 0.28571429rem
+    background: $blue
+    color: #FFF
+    font-weight: bold
+    padding: .78571429rem 1.5rem
+    @include transition(background 0.01s linear)
+    &:hover
+        background: darken($blue, 10)
+
+input[type=submit].neutral
+    background: $blue
+    &:hover
+        background: darken($blue, 10)
+
+input[type=submit].positive
+    background: $green
+    &:hover
+        background: darken($green, 10)
+
+input[type=submit].negative
+    background: $red
+    &:hover
+        background: darken($red, 10)
